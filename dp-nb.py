@@ -111,8 +111,8 @@ with model:
                  beta15 * x_thinly_shared)
     
 with model:
-    tau = pm.Lognormal('tau', 0., 2., shape=K)
-    obs = pm.Mixture('obs', w, pm.NegativeBinomial.dist(mu, tau), observed=y_ANZ_KH)
+    psi = pm.Lognormal('psi', 0., 2., shape=K)
+    obs = pm.Mixture('obs', w, pm.NegativeBinomial.dist(mu, psi), observed=y_ANZ_KH)
     # zero-inflation:
     #obs = pm.Mixture('obs', w, pm.ZeroInflatedNegativeBinomial.dist(mu, tau), observed=y_ANZ_KH)
 
